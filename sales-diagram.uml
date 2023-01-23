@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="-691.0" y="151.0">ru.gb.sales.model.Category</node>
+    <node x="-679.5" y="-13.5">ru.gb.sales.model.Status</node>
+    <node x="-253.27106918238997" y="480.7201257861635">ru.gb.sales.repository.CategoryRepository</node>
+    <node x="-691.0" y="749.0">ru.gb.sales.model.Order</node>
+    <node x="-691.0" y="429.0">ru.gb.sales.model.Product</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="ru.gb.sales.model.Product" target="ru.gb.sales.model.Status" relationship="TO_ONE">
+      <point x="0.0" y="-115.0" />
+      <point x="-582.0" y="404.0" />
+      <point x="-442.0" y="404.0" />
+      <point x="-442.0" y="124.0" />
+      <point x="-582.0" y="124.0" />
+      <point x="0.0" y="37.5" />
+    </edge>
+    <edge source="ru.gb.sales.model.Category" target="ru.gb.sales.model.Status" relationship="TO_ONE">
+      <point x="0.0" y="-93.0" />
+      <point x="0.0" y="37.5" />
+    </edge>
+    <edge source="ru.gb.sales.model.Product" target="ru.gb.sales.model.Category" relationship="TO_ONE">
+      <point x="0.0" y="-115.0" />
+      <point x="0.0" y="93.0" />
+    </edge>
+    <edge source="ru.gb.sales.model.Order" target="ru.gb.sales.model.Status" relationship="TO_ONE">
+      <point x="0.0" y="-115.0" />
+      <point x="-582.0" y="724.0" />
+      <point x="-402.0" y="724.0" />
+      <point x="-402.0" y="124.0" />
+      <point x="-582.0" y="124.0" />
+      <point x="0.0" y="37.5" />
+    </edge>
+    <edge source="ru.gb.sales.model.Order" target="ru.gb.sales.model.Product" relationship="TO_MANY">
+      <point x="0.0" y="-115.0" />
+      <point x="0.0" y="115.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="0.7847976307996052" showDependencies="true" x="-412.4999999999999" y="492.5" />
+  <SelectedNodes>
+    <node>ru.gb.sales.repository.CategoryRepository</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
