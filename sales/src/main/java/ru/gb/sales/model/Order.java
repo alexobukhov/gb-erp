@@ -1,6 +1,5 @@
 package ru.gb.sales.model;
 
-import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
@@ -8,10 +7,10 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@Entity
+@jakarta.persistence.Entity
 @NoArgsConstructor
 @Data
-public class Order {
+public class Order extends BaseEntity {
 
     @Id
     private long id;
