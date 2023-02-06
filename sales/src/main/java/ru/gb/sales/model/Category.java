@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @Data
-public class Category {
+public class Category extends BaseEntity {
 
     @Id
     private long id;

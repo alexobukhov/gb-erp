@@ -4,10 +4,10 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
+@jakarta.persistence.Entity
 @NoArgsConstructor
 @Data
-public class Product {
+public class Product extends BaseEntity {
 
     @Id
     private long id;
