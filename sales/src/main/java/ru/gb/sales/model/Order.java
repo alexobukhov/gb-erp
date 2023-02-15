@@ -1,13 +1,14 @@
 package ru.gb.sales.model;
 
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.List;
 
-@jakarta.persistence.Entity
+@Entity
 @NoArgsConstructor
 @Data
 public class Order extends BaseEntity {
