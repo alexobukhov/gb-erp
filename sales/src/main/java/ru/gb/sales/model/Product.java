@@ -1,13 +1,16 @@
 package ru.gb.sales.model;
 
-import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@jakarta.persistence.Entity
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
 @NoArgsConstructor
 @Data
-public class Product extends BaseEntity {
+public class Product {
 
     @Id
     private long id;
