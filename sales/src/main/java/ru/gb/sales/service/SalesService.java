@@ -4,14 +4,15 @@ import ru.gb.sales.model.Category;
 import ru.gb.sales.model.Order;
 import ru.gb.sales.model.Product;
 import ru.gb.sales.model.Status;
+import ru.gb.sales.model.dto.CategoryDTO;
 
 import java.util.List;
 
 public interface SalesService {
 
-    Category getCategory(long id);
+    CategoryDTO getCategory(long id);
 
-    List<Category> getCategories();
+    List<CategoryDTO> getCategories();
 
     void addCategory(Category category);
 

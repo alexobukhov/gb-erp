@@ -2,16 +2,27 @@ package ru.gb.sales.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ru.gb.sales.mapper.CategoryMapper;
 import ru.gb.sales.model.Category;
 import ru.gb.sales.model.Order;
 import ru.gb.sales.model.Product;
 import ru.gb.sales.model.Status;
+import ru.gb.sales.model.cache.CategoryCache;
+import ru.gb.sales.model.dto.CategoryDTO;
+import ru.gb.sales.repository.cache.CategoryCacheRepository;
 import ru.gb.sales.service.SalesService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class SalesServiceImpl implements SalesService {
+
+    @Autowired
+    private CategoryMapper categoryMapper;
+
+    @Autowired
+    private CategoryCacheRepository categoryCacheRepository;
 
     @Autowired
     private CategoryServiceImpl categoryService;
@@ -23,17 +34,37 @@ public class SalesServiceImpl implements SalesService {
     private ProductServiceImpl productService;
 
     @Override
-    public Category getCategory(long id) {
-        return categoryService.getCategory(id);
+    public CategoryDTO getCategory(long id) {
+        CategoryCache categoryCache = categoryCacheRepository.findById(id).orElse(null);
+        if (categoryCache != null) {
+            return CategoryDTO.builder()
+                    .id(categoryCache.getId())
+                    .name(categoryCache.getName())
+                    .status(categoryCache.getStatus())
+                    .build();
+        }
+        return categoryMapper.mapperCategoryToCategoryDTO(categoryService.getCategory(id));
     }
 
     @Override
-    public List<Category> getCategories() {
-        return categoryService.getCategories();
+    public List<CategoryDTO> getCategories() {
+        List<CategoryDTO> categoryDTOS = new ArrayList<>();
+        for(Category category : categoryService.getCategories()) {
+            categoryDTOS.add(categoryMapper.mapperCategoryToCategoryDTO(category));
+        }
+        return categoryDTOS;
     }
 
     @Override
     public void addCategory(Category category) {
+        if (categoryCacheRepository.findById(category.getId()) != null) {
+            CategoryCache categoryCache = CategoryCache.builder()
+                    .id(category.getId())
+                    .name(category.getName())
+                    .status(category.getStatus())
+                    .build();
+            categoryCacheRepository.save(categoryCache);
+        }
         categoryService.addCategory(category);
     }
 

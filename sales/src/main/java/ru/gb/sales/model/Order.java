@@ -11,7 +11,7 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @Data
-public class Order extends BaseEntity {
+public class Order {
 
     @Id
     private long id;

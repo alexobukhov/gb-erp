@@ -12,6 +12,10 @@ spring:
     generate-ddl: true
     hibernate:
       ddl-auto: update
+  redis:
+    host: localhost
+    port: 6379
+    ssl: false
 
 activemq:
   broker:
